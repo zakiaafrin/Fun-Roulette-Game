@@ -23,6 +23,16 @@ if($total !=0){
         echo "No record found";
 } 
 
+
+
+$query = "SELECT * FROM bet";                                                                                                                                     
+$data = mysqli_query($conn, $query);
+$total = mysqli_num_rows($data);
+    
+if($total != 5){        
+    header("location:game.php");
+}
+
 $query = "SELECT * FROM result WHERE name='$player'";                                                                                                                                       
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data); 
@@ -66,7 +76,6 @@ include "inc/header.php";
 <div id="mySidebar" class="sidebar">
     <img src="img/7.png" alt="Roulette Logo" class="logo">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <button class="side-btn"><a href="score.php">Score Board</a></button>
     <button class="side-btn"><a href="help.php">Help</a></button>
     <button class="side-btn"><a href="store.php">Store</a></button>
 
@@ -101,18 +110,7 @@ include "inc/header.php";
         echo "<h2>Congratulations!!! You have won " . $wchips . " chips.</h2>";
     } else {
         echo "<h2>Better luck next time.</h2>";
-    }
-
-    
-$query = "INSERT INTO scoreboard (win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date) 
-          SELECT win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date 
-          FROM result";
-if (mysqli_query($conn, $query)) {
-
-} else {
-    echo "Error: " . $query . "<br>" . mysqli_error($conn);
-}
-?>
+    }?>
 </div>
 
     <script>
@@ -125,6 +123,39 @@ if (mysqli_query($conn, $query)) {
         function closeNav() {
             document.getElementById("mySidebar").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
+        }
+
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+        
+        document.onkeydown = function(e) {
+            var key;
+            if (window.event) {
+                key = event.keyCode
+            }
+            else {
+                var unicode = e.keyCode ? e.keyCode : e.charCode
+                key = unicode
+            }
+
+            switch (key) {//event.keyCode
+                case 116: //F5 button
+                key.returnValue = false;
+                key = 0; //event.keyCode = 0;
+                return false;
+                case 82: //R button
+                if (event.ctrlKey) {
+                    key.returnValue = false;
+                    key = 0; //event.keyCode = 0;
+                    return false;
+                }
+                case 91: // ctrl + R Button
+                event.returnValue= false;
+                key=0;
+                return false;
+            }
         }
     </script>
 

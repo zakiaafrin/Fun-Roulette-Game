@@ -102,6 +102,55 @@ if($total !=0){
             document.getElementById("mySidebar").style.width = "0";
             document.getElementById("main").style.marginLeft= "0";
         }
+        
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+
+        document.onkeydown = function(e) {
+            var key;
+            if (window.event) {
+                key = event.keyCode
+            }
+            else {
+                var unicode = e.keyCode ? e.keyCode : e.charCode
+                key = unicode
+            }
+
+            switch (key) {//event.keyCode
+                case 116: //F5 button
+                key.returnValue = false;
+                key = 0; //event.keyCode = 0;
+                return false;
+                case 82: //R button
+                if (event.ctrlKey) {
+                    key.returnValue = false;
+                    key = 0; //event.keyCode = 0;
+                    return false;
+                }
+                case 91: // ctrl + R Button
+                event.returnValue= false;
+                key=0;
+                return false;
+            }
+        }
     </script>
+
+    <?php
+    $query = "TRUNCATE TABLE bet;";
+    if (mysqli_query($conn, $query)) {
+        
+    } else {
+        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+    }
+
+    $query = "TRUNCATE TABLE result;";
+    if (mysqli_query($conn, $query)) {
+        
+    } else {
+        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+    }
+    ?>
 
 <?php include "inc/footer.php"; ?> 

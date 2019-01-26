@@ -24,6 +24,14 @@ if($total !=0){
         echo "No record found";
 } 
 
+$query = "SELECT * FROM bet";                                                                                                                                     
+$data = mysqli_query($conn, $query);
+$total = mysqli_num_rows($data);
+    
+if($total != 5){        
+    header("location:game.php");
+}
+
 $query = "SELECT * FROM result where name='$player'";                                                                                                                                       
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data); 
@@ -132,20 +140,50 @@ if($total != 0){
                 document.getElementById("mySidebar").style.width = "0";
                 document.getElementById("main").style.marginLeft = "0";
             }
+        
+            history.pushState(null, null, document.URL);
+            window.addEventListener('popstate', function () {
+                history.pushState(null, null, document.URL);
+            });
 
-            function preventBack() { window.history.forward(); }
-            setTimeout("preventBack()", 0);
-            window.onunload = function () { null };
+            document.onkeydown = function(e) {
+                var key;
+                if (window.event) {
+                    key = event.keyCode
+                }
+                else {
+                    var unicode = e.keyCode ? e.keyCode : e.charCode
+                    key = unicode
+                }
+
+                switch (key) {//event.keyCode
+                    case 116: //F5 button
+                    key.returnValue = false;
+                    key = 0; //event.keyCode = 0;
+                    return false;
+                    case 82: //R button
+                    if (event.ctrlKey) {
+                        key.returnValue = false;
+                        key = 0; //event.keyCode = 0;
+                        return false;
+                    }
+                    case 91: // ctrl + R Button
+                    event.returnValue= false;
+                    key=0;
+                    return false;
+                }
+            }
         </script>
 
-        <?php
+        <?php            
+        $query = "INSERT INTO scoreboard (win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date) 
+        SELECT win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date 
+        FROM result WHERE NOT EXISTS(SELECT date FROM scoreboard);";
+        if (mysqli_query($conn, $query)) {
 
-// $query = "TRUNCATE TABLE bet;";
-// if (mysqli_query($conn, $query)) {
-//     // header('location:result.php');
-// } else {
-//     echo "Error: " . $query . "<br>" . mysqli_error($conn);
-// }
+        } else {
+        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+        }
 
 ?>
 

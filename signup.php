@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $name = ucwords($_POST['username']);
     $pass = $_POST['password'];
-    $chips = "100";
+    $chips = "100.00";
 
     $email_sql = "SELECT * FROM players WHERE email='$email'";
     $user_sql = "SELECT * FROM players WHERE username='$name'";

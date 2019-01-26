@@ -149,11 +149,19 @@ if (mysqli_query($conn, $query)) {
     echo "Error: " . $query . "<br>" . mysqli_error($conn);
 }
 
-if($win){
-    $query = "INSERT INTO  result VALUES ('', '$winning_number', '$winning_color', '$player', 'Winner', '$a', '$c', '$n', '$swin', '$date');";
- }else{
-    $query = "INSERT INTO  result VALUES ('', '$winning_number', '$winning_color', '$player', 'Loser', '$a', '$c', '$n', '$swin', '$date');";
- }
+$check_sql = "SELECT * FROM result";
+$player_sql = "SELECT * FROM result WHERE name='$player'";
+$con_player = mysqli_query($conn, $player_sql);
+
+if (mysqli_num_rows($con_player) >= 1) {
+
+} else {
+    if($win) { 
+        $query = "INSERT INTO  result VALUES ('', '$winning_number', '$winning_color', '$player', 'Winner', '$a', '$c', '$n', '$swin', '$date');";
+    } else {
+        $query = "INSERT INTO  result VALUES ('', '$winning_number', '$winning_color', '$player', 'Loser', '$a', '$c', '$n', '$swin', '$date');";
+    }
+}
 
 
 if (mysqli_query($conn, $query)) {
