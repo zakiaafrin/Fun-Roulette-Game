@@ -32,6 +32,14 @@ if($total == 5){
     header("location:win.php");
 }
 
+
+$query = "TRUNCATE TABLE result;";
+if (mysqli_query($conn, $query)) {
+    
+} else {
+    echo "Error: " . $query . "<br>" . mysqli_error($conn);
+}
+
 include "inc/header.php"; 
 ?>
 <div class="head" id="main">
@@ -59,6 +67,7 @@ include "inc/header.php";
     <img src="img/7.png" alt="Roulette Logo" class="logo">
 
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <button class="side-btn"><a href="score.php">Scoreboard</a></button>
     <button class="side-btn"><a href="help.php">Help</a></button>
     <button class="side-btn"><a href="store.php">Store</a></button>
     <button class="side-btn"><a href="terms.php">Terms & Conditions</a></button>

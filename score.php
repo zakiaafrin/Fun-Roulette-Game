@@ -137,20 +137,4 @@ if($total !=0){
         }
     </script>
 
-    <?php
-    $query = "TRUNCATE TABLE bet;";
-    if (mysqli_query($conn, $query)) {
-        
-    } else {
-        echo "Error: " . $query . "<br>" . mysqli_error($conn);
-    }
-
-    $query = "TRUNCATE TABLE result;";
-    if (mysqli_query($conn, $query)) {
-        
-    } else {
-        echo "Error: " . $query . "<br>" . mysqli_error($conn);
-    }
-    ?>
-
 <?php include "inc/footer.php"; ?> 

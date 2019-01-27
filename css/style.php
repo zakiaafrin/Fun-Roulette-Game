@@ -271,7 +271,7 @@ form {
     color: navajowhite;
     font-weight: bold;
     text-align: center;
-    margin-top: 250px;
+    margin-top: 175px;
 }
 
 .store-mail {
@@ -550,7 +550,7 @@ input[type=submit]:hover {
 
 #summery {
     width: 70%;
-    height: 388px;
+    /* height: 388px; */
     background-color: #ea85fb;
     /* margin-top: -2%; */
     margin-right: 5%;
@@ -617,7 +617,7 @@ input[type=submit]:hover {
 }
 
 .score-body {
-    height: 100%;
+    /* height: 100%; */
     background-color: #fd94f5;
     margin-left: 6%;
     margin-right: 6%;

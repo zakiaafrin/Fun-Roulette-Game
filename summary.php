@@ -24,13 +24,14 @@ if($total !=0){
         echo "No record found";
 } 
 
-$query = "SELECT * FROM bet";                                                                                                                                     
-$data = mysqli_query($conn, $query);
-$total = mysqli_num_rows($data);
+
+// $query = "SELECT * FROM bet";                                                                                                                                     
+// $data = mysqli_query($conn, $query);
+// $total = mysqli_num_rows($data);
     
-if($total != 5){        
-    header("location:game.php");
-}
+// if($total != 5){        
+//     header("location:game.php");
+// }
 
 $query = "SELECT * FROM result where name='$player'";                                                                                                                                       
 $data = mysqli_query($conn, $query);
@@ -75,6 +76,7 @@ include "inc/header.php";
 <div id="mySidebar" class="sidebar">
     <img src="img/7.png" alt="Roulette Logo" class="logo">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <button class="side-btn"><a href="game.php">Play</a></button>
     <button class="side-btn"><a href="score.php">Score Board</a></button>
     <button class="side-btn"><a href="help.php">Help</a></button>
     <button class="side-btn"><a href="store.php">Store</a></button>
@@ -178,12 +180,20 @@ if($total != 0){
         <?php            
         $query = "INSERT INTO scoreboard (win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date) 
         SELECT win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date 
-        FROM result WHERE NOT EXISTS(SELECT date FROM scoreboard);";
+        FROM result";
         if (mysqli_query($conn, $query)) {
 
         } else {
         echo "Error: " . $query . "<br>" . mysqli_error($conn);
         }
+
+        
+    $query = "TRUNCATE TABLE bet;";
+    if (mysqli_query($conn, $query)) {
+        
+    } else {
+        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+    }
 
 ?>
 

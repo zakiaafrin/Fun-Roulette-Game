@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2019 at 05:29 AM
+-- Generation Time: Jan 27, 2019 at 06:59 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -36,16 +36,6 @@ CREATE TABLE `bet` (
   `number` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `bet`
---
-
-INSERT INTO `bet` (`id`, `player_name`, `amount`, `color`, `number`) VALUES
-(1, 'Afrin', 12, 'Red', 15),
-(2, 'Anu', 20, 'Green', 13),
-(3, 'Nijhum', 8, 'Black', 9),
-(4, 'Rasif', 5, 'Green', 20);
-
 -- --------------------------------------------------------
 
 --
@@ -65,11 +55,11 @@ CREATE TABLE `players` (
 --
 
 INSERT INTO `players` (`id`, `email`, `username`, `password`, `chips`) VALUES
-(1, 'anu@yahoo.com', 'Anu', '$2y$10$6/ER.yTXC9kuU', '100.00'),
-(2, 'rasif@yahoo.com', 'Rasif', '$2y$10$wmSKdHWI.VRNm', '100.00'),
-(3, 'nijhum@yahoo.com', 'Nijhum', '$2y$10$nH2Z68EoLl6KU', '100.00'),
-(4, 'afrin@yahoo.com', 'Afrin', '$2y$10$5deO8c4qi2I8h', '100.00'),
-(5, 'zakia@yahoo.com', 'Zakia', '$2y$10$67GL7MRnXO4C6', '100.00');
+(1, 'anu@yahoo.com', 'Anu', '1234', '100.00'),
+(2, 'rasif@yahoo.com', 'Rasif', '1234', '100.00'),
+(3, 'nijhum@yahoo.com', 'Nijhum', '1234', '100.00'),
+(4, 'afrin@yahoo.com', 'Afrin', '1234', '100.00'),
+(5, 'zakia@yahoo.com', 'Zakia', '1234', '100.00');
 
 -- --------------------------------------------------------
 
@@ -97,6 +87,7 @@ CREATE TABLE `result` (
 --
 
 CREATE TABLE `scoreboard` (
+  `id` int(11) NOT NULL,
   `win_num` int(11) NOT NULL,
   `win_col` enum('Red','Green','Black','') NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -131,6 +122,12 @@ ALTER TABLE `result`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `scoreboard`
+--
+ALTER TABLE `scoreboard`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -138,18 +135,24 @@ ALTER TABLE `result`
 -- AUTO_INCREMENT for table `bet`
 --
 ALTER TABLE `bet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `result`
 --
 ALTER TABLE `result`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `scoreboard`
+--
+ALTER TABLE `scoreboard`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
