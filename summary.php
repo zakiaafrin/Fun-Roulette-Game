@@ -1,6 +1,5 @@
 <?php
 session_start();
-// $_SESSION['block'] = true;
 include("inc/connection.php");
 
 $title= 'Fun Roulette Game';
@@ -23,7 +22,6 @@ if($total !=0){
     } else {
         echo "No record found";
 } 
-
 
 // $query = "SELECT * FROM bet";                                                                                                                                     
 // $data = mysqli_query($conn, $query);
@@ -50,15 +48,19 @@ $query = "SELECT * FROM result";
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data); 
 
+if($total != 5){        
+    header("location:game.php");
+}
+
 include "inc/header.php"; 
 ?>
 <div class="head" id="main">
     <div class="menu">
         <div>
-            <button class="head-btn" onclick="openNav()">☰</button>
+            <button class="head-btn" onclick="openNav()">☰ Menu</button>
         </div>
         <div>
-            <button class="head-btn" style="margin-left: 88px;">
+            <button class="head-btn" style="margin-left: 52px;">
                 <?php echo $title; ?></button>
         </div>
         <div class="wallet">
@@ -66,11 +68,11 @@ include "inc/header.php";
                     <?php echo $coins;  ?> chips </strong></div>
             <div><img src="img/coin.png" alt="coin" class="coin"></div>
         </div>
-
     </div>
 
     <div class="welcome">Welcome <b>
-            <?php echo $player; ?></b> | <a href="logout.php">Logout</a></div>
+            <?php echo $player; ?></b> | <a href="logout.php">Logout</a>
+    </div>
 </div>
 
 <div id="mySidebar" class="sidebar">
@@ -79,7 +81,7 @@ include "inc/header.php";
     <button class="side-btn"><a href="game.php">Play</a></button>
     <button class="side-btn"><a href="score.php">Score Board</a></button>
     <button class="side-btn"><a href="help.php">Help</a></button>
-    <button class="side-btn"><a href="store.php">Store</a></button>
+    <button class="side-btn"><a href="store.php">Online Store</a></button>
 
     <div class="mail welcome">
         <?php echo $email; ?>
@@ -90,7 +92,7 @@ include "inc/header.php";
     <h2>Game Result</h2>
 </div>
 <div class='result-container'>
-    <div class='result-left'>
+    <div class='result-left1'>
         <h2>Winning Number :
             <?php echo $wn; ?>
         </h2>
@@ -129,55 +131,56 @@ if($total != 0){
 // echo "No record found";
 }
 ?>
-</table>
+    </table>
 </div>
-        <script>
-            function openNav() {
-                document.getElementById("mySidebar").style.width = "290px";
-                document.getElementById("mySidebar").style.textAlign = "center";
-                document.getElementById("main").style.marginLeft = "250px";
-            }
 
-            function closeNav() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft = "0";
-            }
-        
-            history.pushState(null, null, document.URL);
-            window.addEventListener('popstate', function () {
-                history.pushState(null, null, document.URL);
-            });
+<script>
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "290px";
+        document.getElementById("mySidebar").style.textAlign = "center";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
 
-            document.onkeydown = function(e) {
-                var key;
-                if (window.event) {
-                    key = event.keyCode
-                }
-                else {
-                    var unicode = e.keyCode ? e.keyCode : e.charCode
-                    key = unicode
-                }
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
 
-                switch (key) {//event.keyCode
-                    case 116: //F5 button
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.URL);
+    });
+
+    document.onkeydown = function (e) {
+        var key;
+        if (window.event) {
+            key = event.keyCode
+        }
+        else {
+            var unicode = e.keyCode ? e.keyCode : e.charCode
+            key = unicode
+        }
+
+        switch (key) {//event.keyCode
+            case 116: //F5 button
+                key.returnValue = false;
+                key = 0; //event.keyCode = 0;
+                return false;
+            case 82: //R button
+                if (event.ctrlKey) {
                     key.returnValue = false;
                     key = 0; //event.keyCode = 0;
                     return false;
-                    case 82: //R button
-                    if (event.ctrlKey) {
-                        key.returnValue = false;
-                        key = 0; //event.keyCode = 0;
-                        return false;
-                    }
-                    case 91: // ctrl + R Button
-                    event.returnValue= false;
-                    key=0;
-                    return false;
                 }
-            }
-        </script>
+            case 91: // ctrl + R Button
+                event.returnValue = false;
+                key = 0;
+                return false;
+        }
+    }
+</script>
 
-        <?php            
+<?php            
         $query = "INSERT INTO scoreboard (win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date) 
         SELECT win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date 
         FROM result";
@@ -186,7 +189,6 @@ if($total != 0){
         } else {
         echo "Error: " . $query . "<br>" . mysqli_error($conn);
         }
-
         
     $query = "TRUNCATE TABLE bet;";
     if (mysqli_query($conn, $query)) {
@@ -194,7 +196,6 @@ if($total != 0){
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }
-
 ?>
 
-        <?php include "inc/footer.php"; ?>
+<?php include "inc/footer.php"; ?>

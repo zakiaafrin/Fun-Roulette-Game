@@ -32,7 +32,6 @@ if($total == 5){
     header("location:win.php");
 }
 
-
 $query = "TRUNCATE TABLE result;";
 if (mysqli_query($conn, $query)) {
     
@@ -45,10 +44,10 @@ include "inc/header.php";
 <div class="head" id="main">
     <div class="menu">
         <div>
-            <button class="head-btn" onclick="openNav()">☰</button>
+            <button class="head-btn" onclick="openNav()">☰ Menu</button>
         </div>
         <div>
-            <button class="head-btn" style="margin-left: 88px;">
+            <button class="head-btn" style="margin-left: 52px;">
                 <?php echo $title; ?></button>
         </div>
         <div class="wallet">
@@ -69,7 +68,7 @@ include "inc/header.php";
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <button class="side-btn"><a href="score.php">Scoreboard</a></button>
     <button class="side-btn"><a href="help.php">Help</a></button>
-    <button class="side-btn"><a href="store.php">Store</a></button>
+    <button class="side-btn"><a href="store.php">Online Store</a></button>
     <button class="side-btn"><a href="terms.php">Terms & Conditions</a></button>
 
     <div class="game-mail welcome">
@@ -87,7 +86,6 @@ include "inc/header.php";
                         <label for="a">Amount</label>
                     </div>
                     <?php
-
 if(isset($_POST['submit'])){
     $amount = $_POST['a'];
     $color = ucwords($_POST['c']);
@@ -96,7 +94,7 @@ if(isset($_POST['submit'])){
     $player_sql = "SELECT * FROM bet WHERE player_name='$player'";
     $con_user = mysqli_query($conn, $player_sql);
 
-    //check if user already exist
+    //check if player already bet
     if (mysqli_num_rows($con_user) > 0) {
         echo "<b id='beterror'>Sorry. You have already placed a bet.</b><br/><br/>";     
     } else {     
@@ -113,7 +111,7 @@ if(isset($_POST['submit'])){
                 echo "<b id='beterror'>*All fields are required!</b><br/><br/>";
             }
         } else {
-            echo "Sorry. You don't have enough chips to bet. Buy chips from our <a href='store.php'>Store</a>.";  
+            echo "Sorry. You don't have enough chips to bet. Buy chips from our <a href='store.php'>Online Store</a>.";  
         }         
     }
 }
@@ -184,6 +182,7 @@ if($total != 0){
 }
 ?>
         </table>
+        <h3 style="text-align:center;">*** Required 5 players to play.</h3>
     </div>
 </div>
 

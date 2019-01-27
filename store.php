@@ -28,10 +28,10 @@ include "inc/header.php";
 <div class="head" id="main">
     <div class="menu">
         <div>
-            <button class="head-btn" onclick="openNav()">☰</button>
+            <button class="head-btn" onclick="openNav()">☰ Menu</button>
         </div>
         <div>
-            <button class="head-btn" style="margin-left: 88px;">
+            <button class="head-btn" style="margin-left: 52px;">
                 <?php echo $title; ?></button>
         </div>
         <div class="wallet">
@@ -39,11 +39,11 @@ include "inc/header.php";
                     <?php echo $coins;  ?> chips </strong></div>
             <div><img src="img/coin.png" alt="coin" class="coin"></div>
         </div>
-
     </div>
 
     <div class="welcome">Welcome <b>
-            <?php echo $player; ?></b> | <a href="logout.php">Logout</a></div>
+            <?php echo $player; ?></b> | <a href="logout.php">Logout</a>
+    </div>
 </div>
 
 <div id="mySidebar" class="sidebar">
@@ -51,7 +51,7 @@ include "inc/header.php";
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <button class="side-btn"><a href="game.php">Play</a></button>
     <button class="side-btn"><a href="help.php">Help</a></button>
-        <button class="side-btn"><a href="terms.php">Terms & Conditions</a></button>  
+    <button class="side-btn"><a href="terms.php">Terms & Conditions</a></button>
     <div class="store-mail welcome">
         <?php echo $email; ?>
     </div>
