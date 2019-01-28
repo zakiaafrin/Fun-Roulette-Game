@@ -6,9 +6,17 @@ $title= 'Fun Roulette Game';
 $email = $_SESSION['email'];
 
 if($email == TRUE) {
+
 } else {
     header('location:login.php');
 }
+
+// $query = $conn->query("SELECT name FROM result WHERE name = '$player'");
+// $new_player = $query->num_rows > 0 ;
+
+// if(!$new_player){
+//     header("Location: summary.php");
+// }
 
 $query = "SELECT * FROM players WHERE email='$email'";                                                                                                                                     
 $data = mysqli_query($conn, $query);
@@ -69,15 +77,14 @@ include "inc/header.php";
     </div>
 
     <div class="welcome">Welcome <b>
-            <?php echo $player; ?></b> | <a href="logout.php">Logout</a>
+            <?php echo $player; ?></b>
     </div>
 </div>
 
 <div id="mySidebar" class="sidebar">
     <img src="img/7.png" alt="Roulette Logo" class="logo">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <button class="side-btn"><a href="help.php">Help</a></button>
-    <button class="side-btn"><a href="store.php">Online Store</a></button>
+    <button class="side-btn"><a href="summary.php">Game Result</a></button>
 
     <div class="store-mail welcome">
         <?php echo $email; ?>
@@ -104,7 +111,7 @@ include "inc/header.php";
         </h3>
     </div>
 </div>
-<div class='result-container'>
+<div class='result-container1'>
     <div class='result-left'>
         <h2>Winning Number :
             <?php echo $wn; ?>
@@ -150,18 +157,18 @@ include "inc/header.php";
             key = unicode
         }
 
-        switch (key) {//event.keyCode
-            case 116: //F5 button
+        switch (key) {                      //event.keyCode
+            case 116:                       //F5 button
                 key.returnValue = false;
-                key = 0; //event.keyCode = 0;
+                key = 0;                    //event.keyCode = 0;
                 return false;
-            case 82: //R button
+            case 82:                        //R button
                 if (event.ctrlKey) {
                     key.returnValue = false;
-                    key = 0; //event.keyCode = 0;
+                    key = 0;                //event.keyCode = 0;
                     return false;
                 }
-            case 91: // ctrl + R Button
+            case 91:                        // ctrl + R Button
                 event.returnValue = false;
                 key = 0;
                 return false;

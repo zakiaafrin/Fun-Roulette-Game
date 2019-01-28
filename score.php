@@ -60,7 +60,7 @@ include "inc/header.php";
     <button class="side-btn"><a href="help.php">Help</a></button>
     <button class="side-btn"><a href="store.php">Online Store</a></button>
     <button class="side-btn"><a href="terms.php">Terms & Conditions</a></button>
-    <div class="mail welcome">
+    <div class="mail1 welcome">
         <?php echo $email; ?>
     </div>
 </div>
@@ -127,18 +127,18 @@ if($total !=0){
             key = unicode
         }
 
-        switch (key) {//event.keyCode
-            case 116: //F5 button
+        switch (key) {                          //event.keyCode
+            case 116:                           //F5 button
                 key.returnValue = false;
-                key = 0; //event.keyCode = 0;
+                key = 0;                        //event.keyCode = 0;
                 return false;
-            case 82: //R button
+            case 82:                            //R button
                 if (event.ctrlKey) {
                     key.returnValue = false;
-                    key = 0; //event.keyCode = 0;
+                    key = 0;                    //event.keyCode = 0;
                     return false;
                 }
-            case 91: // ctrl + R Button
+            case 91:                            // ctrl + R Button
                 event.returnValue = false;
                 key = 0;
                 return false;

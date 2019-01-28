@@ -46,7 +46,7 @@ include "inc/header.php";
     </div>
 
     <div class="welcome">Welcome <b>
-            <?php echo $player; ?></b> | <a href="logout.php">Logout</a>
+            <?php echo $player; ?></b> 
     </div>
 </div>
 
@@ -83,7 +83,7 @@ if($total < 5){
 
         <h2><button class="cover-btn">Know the equipment</button></h2>
 
-        <p>Roulette is French for "little wheel." On this wheel are 36 numbers and a 0; on some American tables, there
+        <p>Roulette is French for "little wheel." On this wheel are 35 numbers and a 0; on some American tables, there
             is a "00." A croupier sends a small white ball spinning that will eventually land on one of the numbers.
             Bets are placed on the table, correlating with the slots the ball can possibly land in. On the table are
             the numbers and a few other options:</p>
@@ -92,7 +92,7 @@ if($total < 5){
             <li>2nd 12</li>
             <li>3rd 12</li>
             <li>1-18</li>
-            <li>19-36</li>
+            <li>19-35</li>
             <li>Red</li>
             <li>Black</li>
             <li>Green</li>
@@ -100,10 +100,11 @@ if($total < 5){
 
         <h2><button class="cover-btn">Know the different bets</button></h2>
 
-        <p>In roulette, you have to anticipate the number or type of pocket on which the ivory ball is going to land.
+        <p>Players must have an account to play. New users will be awarded with 100 chips upon registration. In roulette, you have to anticipate the number or type of pocket on which the ivory ball is going to land.
             To do this, there are a range of bets you can make."Inside" bets, or bets placed on specific numbers,
             generally have higher paying odds. You can bet:</p>
         <ol>
+            <li>To bet, you must select a color (red, black or green), a number (0 to 35) and the amount. Bets cannot be removed once placed. Players can only bet once at each hand.</li>
             <li>Straight up" betting on one number pays 35 to 0</li>
             <li>Split betting on two numbers pays 17 to 1</li>
             <li>"Street" betting on three numbers pays 11 to 1</li>
@@ -117,11 +118,11 @@ if($total < 5){
                 6:1, and the Row 00 bet which covers 0 and 00 and pays 17:1.</li>
         </ol>
 
-        <h2><button class="cover-btn">Learn about "Other" bets</button></h2>
+        <h2><button class="cover-btn">Learn about "Main" bets</button></h2>
         <ol>
-            <li>Color matching (Red or Black or Green) pays 1 to 1.5 Times.</li>
-            <li>Number matching (Red or Black or Green) pays 1 to 10 Times.</li>
-            <li>Color matching (Red or Black or Green) pays 1 to 20 Times.</li>
+            <li>Color matching (Red or Black or Green) pays 1.5 Times.</li>
+            <li>Number matching (0 to 35) pays 10 Times.</li>
+            <li>Color & Number matching pays 20 Times.</li>
         </ol>
 
         <h2><button class="cover-btn">Watch what's happening</button></h2>
@@ -135,10 +136,10 @@ if($total < 5){
 
         <h2><button class="cover-btn">Place your bets</button></h2>
 
-        <p>The first six bets are placed on the pockets numbered 0 to 36 on the game table. If you want to bet on
+        <p>The first five bets are placed on the pockets numbered 0 to 35 on the game table. If you want to bet on
             column, place your bets on the empty pocket under the three columns. For the dozen, choose the pocket P12
             for the first 12 numbers, M 12 for the 12 middle numbers and D 12 for the last 12 numbers. Finally, when
-            you want to bet on the outside bets, use the red, black, even, odd, high or low pockets.</p>
+            you want to bet on the outside bets, use the red, black or green.</p>
 
         <p>Some players like to watch the other players, either hoping the others know something they don't or doing
             the opposite of their opponents' actions. You can try this, but it won't improve your odds more than
@@ -168,7 +169,7 @@ if($total < 5){
         </ol>
         <p>Most importantly, you should have fun! Roulette is a very entertaining casino game that offers huge rewards
             to those willing to try. So give it a chance. If you don’t want to visit a brick and mortar, head over to
-            Planet 7 Online Casino today to have a spin at the Roulette table. You might just end up winning big! Good
+            roulette@casino.com. Online Casino today to have a spin at the Roulette table. You might just end up winning big! Good
             luck!</p>
 
         <script>

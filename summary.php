@@ -23,14 +23,6 @@ if($total !=0){
         echo "No record found";
 } 
 
-// $query = "SELECT * FROM bet";                                                                                                                                     
-// $data = mysqli_query($conn, $query);
-// $total = mysqli_num_rows($data);
-    
-// if($total != 5){        
-//     header("location:game.php");
-// }
-
 $query = "SELECT * FROM result where name='$player'";                                                                                                                                       
 $data = mysqli_query($conn, $query);
 $total = mysqli_num_rows($data); 
@@ -82,35 +74,30 @@ include "inc/header.php";
     <button class="side-btn"><a href="score.php">Score Board</a></button>
     <button class="side-btn"><a href="help.php">Help</a></button>
     <button class="side-btn"><a href="store.php">Online Store</a></button>
+    <button class="side-btn"><a href="terms.php">Terms & Conditions</a></button>
 
     <div class="mail welcome">
         <?php echo $email; ?>
     </div>
 </div>
 
-<div id="game-result">
-    <h2>Game Result</h2>
-</div>
 <div class='result-container'>
     <div class='result-left1'>
-        <h2>Winning Number :
-            <?php echo $wn; ?>
-        </h2>
-        <h2>Winning Color :
-            <?php echo $wcol; ?>
-        </h2>
+        <img src="img/roulette.png" alt="Roulette" width="190" id="roulette-spin">
     </div>
 </div>
 <div id='summery'>
-    <h1 class='center'>Summary</h1>
+    <h1 class='center'>Game Result</h1>
     <table id='players'>
         <tr>
             <th></th>
             <th>Player</th>
             <th>Bet Amount</th>
-            <th>Bet Color</th>
             <th>Bet Number</th>
+            <th>Bet Color</th>
             <th>Status</th>
+            <th>Winning Number</th>
+            <th>Winning Color</th>
             <th>Chips Win</th>
         </tr>
         <?php 
@@ -121,14 +108,16 @@ if($total != 0){
             <td>" . $result['id'] . "</td>
             <td>" . $result['name'] . "</td>
             <td>" . $result['bet_amount'] . "</td>
-            <td>" . $result['bet_color'] . "</td>
             <td>" . $result['bet_number'] . "</td>
+            <td>" . $result['bet_color'] . "</td>
             <td>" . $result['status'] . "</td>
+            <td>" . $result['win_num'] . "</td>
+            <td>" . $result['win_col'] . "</td>
             <td>" . $wc = $result['win_chips'] . "</td>
         </tr>";
-}
+    }
 } else {
-// echo "No record found";
+    // echo "No record found";
 }
 ?>
     </table>
@@ -161,18 +150,18 @@ if($total != 0){
             key = unicode
         }
 
-        switch (key) {//event.keyCode
-            case 116: //F5 button
+        switch (key) {                          //event.keyCode
+            case 116:                           //F5 button
                 key.returnValue = false;
-                key = 0; //event.keyCode = 0;
+                key = 0;                        //event.keyCode = 0;
                 return false;
-            case 82: //R button
+            case 82:                            //R button
                 if (event.ctrlKey) {
                     key.returnValue = false;
-                    key = 0; //event.keyCode = 0;
+                    key = 0;                    //event.keyCode = 0;
                     return false;
                 }
-            case 91: // ctrl + R Button
+            case 91:                            // ctrl + R Button
                 event.returnValue = false;
                 key = 0;
                 return false;
@@ -196,6 +185,14 @@ if($total != 0){
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }
+        
+    $query = $conn->query("SELECT name FROM result WHERE name = '$player'");
+    $new_player = $query->num_rows > 0 ;
+
+    if(!$new_player){
+        header("Location: game.php");
+    }
+    
 ?>
 
 <?php include "inc/footer.php"; ?>

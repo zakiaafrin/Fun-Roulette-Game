@@ -58,7 +58,7 @@ include "inc/header.php";
     </div>
 
     <div class="welcome">Welcome <b>
-            <?php echo $player; ?></b> | <a href="logout.php">Logout</a>
+            <?php echo $player; ?></b> 
     </div>
 </div>
 

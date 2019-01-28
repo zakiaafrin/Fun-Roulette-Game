@@ -2,7 +2,6 @@
 session_start();
 include("inc/connection.php");
 error_reporting(0);
-// if(count($_SESSION)) header("Location: login.php");
 
 $title= 'Fun Roulette Game';
 include "inc/header.php"; 
@@ -52,7 +51,6 @@ if(isset($_POST['submit'])){
             $data = mysqli_query($conn, $query);
             if($data) {
                 echo "<div class='sign-success'>Sign Up successful.</div></br>";
-                header('location:login.php');
             } else {
                 echo "<b class='error'>*All fields are required!</b><br/><br/>";
             }
@@ -73,7 +71,7 @@ if(isset($_POST['submit'])){
                 <input type="checkbox" onclick="myFunction()">Show Password<br>
             </label>
 
-            <p>By creating an account you agree to our <a href="terms.php" class="privacy">Terms & Conditions</a>.</p>
+            <p>By creating an account you agree to our <a href="terms.php" target="_blank" class="privacy">Terms & Conditions</a>.</p>
 
             <div class="container-signup">
                 <p><input type="submit" name="submit" value="Sign Up" class="signupbtn"></p>
@@ -91,7 +89,7 @@ if(isset($_POST['submit'])){
 </div>
 
 <div class="footer">
-    <p>CopyRight &copy; 2018. This site is created by Zakia Afrin Jeme. All Rights Reserved.</p>
+    <p>CopyRight &copy; <?php echo date("Y"); ?>. This site is created by Zakia Afrin Jeme. All Rights Reserved.</p>
 </div>
 
 <script>

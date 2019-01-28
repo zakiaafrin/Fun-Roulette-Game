@@ -273,7 +273,7 @@
         color: navajowhite;
         font-weight: bold;
         text-align: center;
-        margin-top: 175px;
+        margin-top: 115px;
     }
 
     .game-mail {
@@ -287,7 +287,7 @@
         color: navajowhite;
         font-weight: bold;
         text-align: center;
-        margin-top: 210px;
+        margin-top: 287px;
     }
 
     .logo {
@@ -490,10 +490,6 @@
         font-size: 15px;
     }
 
-    .result-container {
-        height: 108px;
-    }
-
     .result-left {
         float: left;
         width: 600px;
@@ -551,7 +547,15 @@
     .congrate {
         color: white;
         text-align: center;
-        margin-top: 97px;
+        margin-top: 96px;
+    }    
+
+    .result-container1 {
+        height: 109px;
+    }
+
+    .result-container {
+        height: 185px;
     }
 
     #game-result {
@@ -561,7 +565,7 @@
         color: white;
         margin-left: 650px;
         margin-right: 650px;
-        margin-top: 5px;
+        margin-top: 48px;
         text-align: center;
     }
 
@@ -638,5 +642,25 @@
         margin-top: 2%;
         margin-bottom: 2%;
         border-radius: 25px;
+    }
+
+    .mail1 {
+        color: navajowhite;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 160px;
+    }
+
+    #roulette-spin {
+        animation: rotate 3s linear infinite;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 </style>

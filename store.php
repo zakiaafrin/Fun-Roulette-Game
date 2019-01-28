@@ -42,14 +42,13 @@ include "inc/header.php";
     </div>
 
     <div class="welcome">Welcome <b>
-            <?php echo $player; ?></b> | <a href="logout.php">Logout</a>
+            <?php echo $player; ?></b> 
     </div>
 </div>
 
 <div id="mySidebar" class="sidebar">
     <img src="img/7.png" alt="Roulette Logo" class="logo">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <button class="side-btn"><a href="game.php">Play</a></button>
     <button class="side-btn"><a href="help.php">Help</a></button>
     <button class="side-btn"><a href="terms.php">Terms & Conditions</a></button>
     <div class="store-mail welcome">
