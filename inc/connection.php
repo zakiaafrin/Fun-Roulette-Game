@@ -1,7 +1,7 @@
 <?php
    $servername ="localhost";
-   $username="root";
-   $password="";
+   $username="phpmyadmin";
+   $password="@1234Nijhum";
    $dbname="roulette";
    $conn = mysqli_connect($servername,$username,$password,$dbname);
    if($conn){
