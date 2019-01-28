@@ -1,6 +1,6 @@
 <?php
    $servername ="localhost";
-   $username="root";
+   $username="phpmyadmin";
    $password="";
    $dbname="roulette";
    $conn = mysqli_connect($servername,$username,$password,$dbname);
