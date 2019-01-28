@@ -58,7 +58,7 @@ include "inc/header.php";
     </div>
 
     <div class="welcome">Welcome <b>
-            <?php echo $player; ?></b> 
+        <?php echo $player; ?></b> | <a href="logout.php">Logout</a> 
     </div>
 </div>
 
@@ -182,7 +182,7 @@ if($total != 0){
 }
 ?>
         </table>
-        <h3 style="text-align:center;">*** Required 5 players to play.</h3>
+        <h3 style="text-align:center;">*** Required 5 players to start the game.</h3>
     </div>
 </div>
 

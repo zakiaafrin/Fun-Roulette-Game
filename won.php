@@ -55,6 +55,15 @@ if($total !=0){
     } else {
         echo "No record found";
 } 
+           
+$query = "INSERT INTO scoreboard (win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date) 
+SELECT win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date 
+FROM result";
+if (mysqli_query($conn, $query)) {
+
+} else {
+echo "Error: " . $query . "<br>" . mysqli_error($conn);
+}
 
 include "inc/header.php"; 
 ?>

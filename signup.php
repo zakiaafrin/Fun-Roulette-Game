@@ -51,9 +51,9 @@ if(isset($_POST['submit'])){
             $data = mysqli_query($conn, $query);
             if($data) {
                 echo "<div class='sign-success'>Sign Up successful.</div></br>";
-            } else {
-                echo "<b class='error'>*All fields are required!</b><br/><br/>";
             }
+        } else {
+            echo "<b class='error'>*All fields are required!</b><br/><br/>";
         }
     }
 }   
@@ -71,7 +71,8 @@ if(isset($_POST['submit'])){
                 <input type="checkbox" onclick="myFunction()">Show Password<br>
             </label>
 
-            <p>By creating an account you agree to our <a href="terms.php" target="_blank" class="privacy">Terms & Conditions</a>.</p>
+            <p>By creating an account you agree to our <a href="terms.php" target="_blank" class="privacy">Terms &
+                    Conditions</a>.</p>
 
             <div class="container-signup">
                 <p><input type="submit" name="submit" value="Sign Up" class="signupbtn"></p>
@@ -89,7 +90,8 @@ if(isset($_POST['submit'])){
 </div>
 
 <div class="footer">
-    <p>CopyRight &copy; <?php echo date("Y"); ?>. This site is created by Zakia Afrin Jeme. All Rights Reserved.</p>
+    <p>CopyRight &copy;
+        <?php echo date("Y"); ?>. This site is created by Zakia Afrin Jeme. All Rights Reserved.</p>
 </div>
 
 <script>

@@ -169,15 +169,7 @@ if($total != 0){
     }
 </script>
 
-<?php            
-        $query = "INSERT INTO scoreboard (win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date) 
-        SELECT win_num, win_col, name, status, bet_amount, bet_color, bet_number, win_chips, date 
-        FROM result";
-        if (mysqli_query($conn, $query)) {
-
-        } else {
-        echo "Error: " . $query . "<br>" . mysqli_error($conn);
-        }
+<?php 
         
     $query = "TRUNCATE TABLE bet;";
     if (mysqli_query($conn, $query)) {
