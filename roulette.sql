@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2019 at 06:20 AM
+-- Generation Time: Jan 29, 2019 at 12:23 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -50,6 +50,17 @@ CREATE TABLE `players` (
   `chips` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `players`
+--
+
+INSERT INTO `players` (`id`, `email`, `username`, `password`, `chips`) VALUES
+(1, 'anu@yahoo.com', 'Anu', '1234', '100.00'),
+(2, 'rasif@yahoo.com', 'Rasif', '1234', '100.00'),
+(3, 'afrin@yahoo.com', 'Afrin', '1234', '116.50'),
+(4, 'nijhum@yahoo.com', 'Nijhum', '1234', '100.00'),
+(5, 'zakia@yahoo.com', 'Zakia', '1234', '79.00');
+
 -- --------------------------------------------------------
 
 --
@@ -87,6 +98,27 @@ CREATE TABLE `scoreboard` (
   `win_chips` varchar(20) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `scoreboard`
+--
+
+INSERT INTO `scoreboard` (`id`, `win_num`, `win_col`, `name`, `status`, `bet_amount`, `bet_color`, `bet_number`, `win_chips`, `date`) VALUES
+(1, 8, 'Black', 'Anu', 'Winner', 9, 'Black', 11, '13.5', '2019-01-28 17:49:01'),
+(2, 8, 'Black', 'Rasif', 'Loser', 11, 'Red', 33, '0', '2019-01-28 17:49:01'),
+(3, 8, 'Black', 'Afrin', 'Loser', 28, 'Green', 35, '0', '2019-01-28 17:49:01'),
+(4, 8, 'Black', 'Nijhum', 'Loser', 15, 'Red', 15, '0', '2019-01-28 17:49:01'),
+(5, 8, 'Black', 'Zakia', 'Winner', 19, 'Black', 34, '28.5', '2019-01-28 17:49:01'),
+(8, 2, 'Red', 'Afrin', 'Winner', 11, 'Red', 15, '16.5', '2019-01-28 17:54:52'),
+(9, 2, 'Red', 'Anu', 'Loser', 3, 'Green', 13, '0', '2019-01-28 17:54:52'),
+(10, 2, 'Red', 'Nijhum', 'Loser', 13, 'Black', 9, '0', '2019-01-28 17:54:52'),
+(11, 2, 'Red', 'Rasif', 'Loser', 17, 'Green', 20, '0', '2019-01-28 17:54:52'),
+(12, 2, 'Red', 'Zakia', 'Winner', 17, 'Red', 13, '25.5', '2019-01-28 17:54:52'),
+(15, 33, 'Red', 'Afrin', 'Winner', 11, 'Red', 15, '16.5', '2019-01-28 23:19:04'),
+(16, 33, 'Red', 'Anu', 'Loser', 3, 'Green', 13, '0', '2019-01-28 23:19:04'),
+(17, 33, 'Red', 'Nijhum', 'Loser', 13, 'Black', 9, '0', '2019-01-28 23:19:04'),
+(18, 33, 'Red', 'Rasif', 'Loser', 17, 'Green', 20, '0', '2019-01-28 23:19:04'),
+(19, 33, 'Red', 'Zakia', 'Loser', 21, 'Black', 13, '0', '2019-01-28 23:19:04');
 
 --
 -- Indexes for dumped tables
@@ -130,7 +162,7 @@ ALTER TABLE `bet`
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `result`
@@ -142,7 +174,7 @@ ALTER TABLE `result`
 -- AUTO_INCREMENT for table `scoreboard`
 --
 ALTER TABLE `scoreboard`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
