@@ -663,4 +663,9 @@
             transform: rotate(360deg);
         }
     }
+
+    .buy-coins {
+        background-color: #5c369f;
+        border: none;
+    }
 </style>

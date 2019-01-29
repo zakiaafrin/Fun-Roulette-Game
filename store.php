@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 include("inc/connection.php");
 
 $title= 'Fun Roulette Game';
@@ -42,7 +43,7 @@ include "inc/header.php";
     </div>
 
     <div class="welcome">Welcome <b>
-            <?php echo $player; ?></b> 
+            <?php echo $player; ?></b>
     </div>
 </div>
 
@@ -61,21 +62,53 @@ include "inc/header.php";
             <div class="store">
                 <img src="img/coin1.png" alt="100 Chips" width="90" style="margin-top: 4.5%;">
             </div>
-            <div class="store-right">
-                <h3>Buy 100 Chips</h3>
-                <h3>Only $3.00</h3>
-            </div>
-            <button class="buy-btn">Buy</button>
+            <form action="" method="post">
+                <div class="store-right">
+                    <h3>Buy 100 Chips</h3>
+                    <h3>Only $3.00</h3>
+                </div>
+                <input type="submit" name="submit1" value="Buy" class="buy-btn">
+            </form>
+            <?php
+if (isset($_POST['submit1'])){
+    $chips = 100; 
+ 
+        $query = "UPDATE players SET chips = ($chips + $coins) WHERE username = '$player'";
+        $data = mysqli_query($conn, $query);
+ 
+        if($data){           
+            header("Refresh:0; url=game.php");
+        }
+    }else{
+        // echo "Chip does not added.";
+    }
+?>
         </div>
         <div class="buy">
             <div class="store">
                 <img src="img/coin2.png" alt="100 Chips" width="150" style="margin-top: 2%;">
             </div>
-            <div class="store-right" style="margin-top: -28%;">
-                <h3>Buy 200 Chips</h3>
-                <h3>Only $3.50</h3>
-            </div>
-            <button class="buy-btn">Buy</button>
+            <form action="" method="post">
+                <div class="store-right" style="margin-top: -28%;">
+                    <h3>Buy 200 Chips</h3>
+                    <h3>Only $3.50</h3>
+                </div>
+                <input type="submit" name="submit2" value="Buy" class="buy-btn">
+            </form>
+            <?php
+if (isset($_POST['submit2'])){
+    $chips = 200; 
+ 
+        $query = "UPDATE players SET chips = ($chips + $coins) WHERE username = '$player'";
+        $data = mysqli_query($conn, $query);
+ 
+        if($data){           
+            header("Refresh:0; url=game.php");
+        }
+    }else{
+        // echo "Chip does not added.";
+    }
+?>
         </div>
     </div>
     <div style="float: right;">
@@ -83,21 +116,53 @@ include "inc/header.php";
             <div class="store">
                 <img src="img/coin4.png" alt="100 Chips" width="150" style="margin-top: 5%;">
             </div>
-            <div class="store-right" style="margin-top: -24.5%;">
-                <h3>Buy 250 Chips</h3>
-                <h3>Only $4.00</h3>
-            </div>
-            <button class="buy-btn">Buy</button>
+            <form action="" method="post">
+                <div class="store-right" style="margin-top: -24.5%;">
+                    <h3>Buy 250 Chips</h3>
+                    <h3>Only $4.00</h3>
+                </div>
+                <input type="submit" name="submit3" value="Buy" class="buy-btn">
+            </form>
+            <?php
+if (isset($_POST['submit3'])){
+    $chips = 250; 
+ 
+        $query = "UPDATE players SET chips = ($chips + $coins) WHERE username = '$player'";
+        $data = mysqli_query($conn, $query);
+ 
+        if($data){           
+            header("Refresh:0; url=game.php");
+        }
+    }else{
+        // echo "Chip does not added.";
+    }
+?>
         </div>
         <div class="buy-right">
             <div class="store">
                 <img src="img/coin3.png" alt="100 Chips" width="190" style="margin-top: 4%;">
             </div>
-            <div class="store-right" style="margin-top: -25.5%;">
-                <h3>Buy 500 Chips</h3>
-                <h3>Only $5.00</h3>
-            </div>
-            <button class="buy-btn">Buy</button>
+            <form action="" method="post">
+                <div class="store-right" style="margin-top: -25.5%;">
+                    <h3>Buy 500 Chips</h3>
+                    <h3>Only $5.00</h3>
+                </div>
+                <input type="submit" name="submit4" value="Buy" class="buy-btn">
+            </form>
+            <?php
+if (isset($_POST['submit4'])){
+    $chips = 500; 
+ 
+        $query = "UPDATE players SET chips = ($chips + $coins) WHERE username = '$player'";
+        $data = mysqli_query($conn, $query);
+ 
+        if($data){           
+            header("Refresh:0; url=game.php");
+        }
+    }else{
+        // echo "Chip does not added.";
+    }
+?>
         </div>
     </div>
 </div>
