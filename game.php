@@ -102,7 +102,7 @@ if(isset($_POST['submit'])){
             $query = "UPDATE players SET chips = $coins - $amount WHERE username='$player'"; 
             $data = mysqli_query($conn, $query); 
 
-            $query = "INSERT INTO bet VALUES ('', '$player', '$amount', '$color', '$number')";
+            $query = "INSERT INTO bet VALUES ('0', '$player', '$amount', '$color', '$number')";
             $data = mysqli_query($conn, $query);
             if($data) {
                 header("Refresh:0; url=game.php");

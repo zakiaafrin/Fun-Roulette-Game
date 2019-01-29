@@ -24,13 +24,6 @@ if($total != 0){
         echo "No record found";
 } 
 
-$winning_number = rand(0, 35);
-$arr = array("Red"=>"red","Green"=>"green","Black"=>"black");
-$winning_color = (array_rand($arr,1));
-
-date_default_timezone_set('America/New_York');
-$date = date("Y/m/d h:i:sa");
-
 include "inc/header.php"; 
 ?>
 <div class="head" id="main">
@@ -114,9 +107,9 @@ include "inc/header.php";
         
        //insert data into result table
        if($win_amount){
-           $query = $conn->query("INSERT INTO result VALUES ('', '$win_number', '$win_color', '$uname', 'Winner', '$amount','$color', '$number','$win_amount', now())");
+           $query = $conn->query("INSERT INTO result VALUES ('0', '$win_number', '$win_color', '$uname', 'Winner', '$amount','$color', '$number','$win_amount', now())");
        }else{
-           $query = $conn->query("INSERT INTO result VALUES ('', '$win_number', '$win_color', '$uname', 'Loser', '$amount', '$color', '$number','$win_amount', now())");
+           $query = $conn->query("INSERT INTO result VALUES ('0', '$win_number', '$win_color', '$uname', 'Loser', '$amount', '$color', '$number','$win_amount', now())");
        }
     }
 ?>

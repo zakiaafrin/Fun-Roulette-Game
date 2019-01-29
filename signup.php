@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
             echo "<b class='error'>Please Enter A Valid Email.</b><br/><br/>";
     } else {
         if($email!="" && $name!="" &&  $pass!="" ) {
-            $query = "INSERT INTO players VALUES ('$id', '$email', '$name', '$pass', '$chips')";
+            $query = "INSERT INTO players VALUES ('0', '$email', '$name', '$pass', '$chips')";
                 
             $data = mysqli_query($conn, $query);
             if($data) {
