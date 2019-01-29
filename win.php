@@ -107,9 +107,9 @@ include "inc/header.php";
         
        //insert data into result table
        if($win_amount){
-           $query = $conn->query("INSERT INTO result VALUES ('', '$win_number', '$win_color', '$uname', 'Winner', '$amount','$color', '$number','$win_amount', now())");
+           $query = $conn->query("INSERT INTO result VALUES ('0', '$win_number', '$win_color', '$uname', 'Winner', '$amount','$color', '$number','$win_amount', now())");
        }else{
-           $query = $conn->query("INSERT INTO result VALUES ('', '$win_number', '$win_color', '$uname', 'Loser', '$amount', '$color', '$number','$win_amount', now())");
+           $query = $conn->query("INSERT INTO result VALUES ('0', '$win_number', '$win_color', '$uname', 'Loser', '$amount', '$color', '$number','$win_amount', now())");
        }
     }
 ?>
