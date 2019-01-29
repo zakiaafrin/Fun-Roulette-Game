@@ -103,13 +103,16 @@ include "inc/header.php";
        }
     
        //update chip into players table
-       $query = $conn->query("UPDATE players SET chips = ($chip + $win_amount) WHERE username='$uname'");    
+       $query = $conn->query("UPDATE players SET chips = ($chip + $win_amount) WHERE username='$uname'");        
+       
+        date_default_timezone_set('America/New_York');
+        $date = date("Y/m/d h:i:sa");
         
        //insert data into result table
        if($win_amount){
-           $query = $conn->query("INSERT INTO result VALUES ('0', '$win_number', '$win_color', '$uname', 'Winner', '$amount','$color', '$number','$win_amount', now())");
+           $query = $conn->query("INSERT INTO result VALUES ('', '$win_number', '$win_color', '$uname', 'Winner', '$amount','$color', '$number','$win_amount', '$date')");
        }else{
-           $query = $conn->query("INSERT INTO result VALUES ('0', '$win_number', '$win_color', '$uname', 'Loser', '$amount', '$color', '$number','$win_amount', now())");
+           $query = $conn->query("INSERT INTO result VALUES ('', '$win_number', '$win_color', '$uname', 'Loser', '$amount', '$color', '$number','$win_amount', '$date')");
        }
     }
 ?>
